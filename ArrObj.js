@@ -16,3 +16,27 @@ console.log(`--- ${connect_coffee.name} Daily Specials ---`);
 connect_coffee.dailySpecials.forEach(special => {
     console.log(`${special.day}: ${special.name} for Ksh ${special.price}.`);
 });
+
+// Task: Get a list of only the names of the specials.
+const specialNames = connect_coffee.dailySpecials.map(special => special.name);
+
+console.log(specialNames);
+
+// Task: Find all specials priced under 500 KES.
+const budgetSpecials = connect_coffee.dailySpecials.filter(special => special.price < 500);
+
+console.log(budgetSpecials);
+
+// Task: Find the special that runs on Tuesday.
+const tuesdaySpecial = connect_coffee.dailySpecials.find(special => special.day === "Tuesday");
+
+console.log(tuesdaySpecial);
+
+// Task: Calculate the total price if you bought one of every special.
+// The starting value (accumulator) is set to 0.
+const totalCost = connect_coffee.dailySpecials.reduce((accumulator, special) => {
+    // Add the current special's price to the running total
+    return accumulator + special.price;
+}, 0);
+
+console.log(`Total cost of all specials: KES ${totalCost}`);
